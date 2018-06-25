@@ -1,0 +1,16 @@
+<%include _header%>
+<h1> Registro </h1>
+
+<form action="/signup" method="post">
+    <div class="form-grup">
+    <label for="sel1">Nombre del usuario</label>
+    <input name="username" type="text" class="form-control" placeholder="nombre de usuario" required autofocus/>
+    </div>
+    <div class="form-grup">
+    <label for="sel1">Contraseña</label>
+    <input name="password" type="password" class="form-control" pleaceholder="Contraseña" required /> 
+    </div>
+    <input type="submit" value="Registrarse" class="btn btn-primary btn btn-block"/>
+</form>
+
+<%include _footer%>

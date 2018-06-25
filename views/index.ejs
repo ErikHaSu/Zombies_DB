@@ -1,0 +1,16 @@
+<%include _header%>
+<h1> Bienvenido </h1>
+
+<%zombie.forEach((zombie) =>{%>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="/zombie/<%=zombie.username%>">
+        <%=zombie.username%>
+        </a>
+    </div>
+    <%if(zombie.bio){%>
+    <div class="panel-body"><%=zombie.bio%></div>
+    <%}%>
+</div>
+<%})%>
+<%include _footer%>

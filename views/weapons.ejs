@@ -1,0 +1,33 @@
+<%include _header%>
+<form action="/weapons" method="post">
+    <div class="form-grup">
+    <label for="sel1">Nombre del Arma</label>
+    <input name="nombre" type="text" class="form-control" placeholder="M27" required/>
+    </div>
+    <br>
+    <div class="form-grup">
+    <label for="sel1">Descripcion</label>
+    <input name="descripcion" type="text" class="form-control" pleaceholder="Arma perrona de la guar" required /> 
+    </div>
+    <br>
+    <div class="form-grup">
+    <label for="sel1">Fureza</label>
+    <input name="fuerza" type="number" class="form-control" placeholder="42" required/>
+    </div>
+    <br>
+    <div class="form-grup">
+    <label for="sel1">Categoria</label>
+    <input name="categoria" type="text" class="form-control" pleaceholder="subfusil" required /> 
+    </div>
+    <br>
+    <div class="form-group">
+    <label for="sel1">Municion</label>
+    <select class="form-control"  name="municiones">
+      <option value = true >si</option>
+      <option vaue = false >no</option>
+    </select>
+    <br>
+  </div>
+    <input type="submit" value="Registrar" class="btn btn-primary btn btn-block"/>
+</form>
+<%include _footer%>

@@ -1,0 +1,24 @@
+<%include _header%>
+<h1> Bienvenido </h1>
+
+<%arma.forEach((arma) =>{%>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a href="#">
+        <%=arma.nombre%>
+        </a>
+    </div>
+    
+    <div class="panel-body">
+        <br>
+        <h4>Descripcion: </h4><%=arma.descripcion%>
+        <br>
+        <h4>Potencia: </h4><%=arma.fuerza%>
+        <br>
+        <h4>Categoria: </h4><%=arma.categoria%>
+        <br>
+    </div>
+    
+</div>
+<%})%>
+<%include _footer%>
