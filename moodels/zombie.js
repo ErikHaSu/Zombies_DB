@@ -41,7 +41,7 @@ zombiSchema.methods.checkPassword = function(guess, done){
     });
 }
 zombiSchema.methods.name = function() {
-    return this.displayname ||this.username;
+    return this.displayName ||this.username;
 }
 var zombie = mongoose.model("zombie",zombiSchema);
 module.exports = zombie;
