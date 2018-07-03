@@ -1,7 +1,7 @@
-var passport = require("passport");
-var zombie = require("./moodels./zombie");
+var passport = require('passport');
+var zombie = require('./moodels/zombie');
 
-var LocalStrategy = require("passport-local".Stratey);
+var LocalStrategy = require("passport-local").Strategy;
 
 module.exports = () =>{
     passport.serializeUser((zombie,done) => {

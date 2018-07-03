@@ -7,7 +7,7 @@ var zombiSchema = mongoose.Schema({
     username:{type:String,required:true,unique:true},
     password:{type:String,required:true},
     createdat:{type:Date,default:Date.now},
-    displayname:{type:String},
+    displayName:{type:String},
     bio:String
 });
 var donothing = () =>{
@@ -35,7 +35,7 @@ zombiSchema.pre("save",function(done){
     });
 });
 
-zombiSchema.methods.checkPassword = (guess, done) =>{
+zombiSchema.methods.checkPassword = function(guess, done){
     bcrypt.compare(guess,this.password,(err,isMatch) => {
         done(err, isMatch);
     });
