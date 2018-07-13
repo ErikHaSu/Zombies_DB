@@ -2,16 +2,33 @@ var express = require('express');
 var Zombie = require('./moodels/zombie');
 var arma = require('./moodels/arma');
 var Arma = require('./moodels/arma');
-
 var passport = require('passport');
+var acl = require('express-acl');
 
 var router = express.Router();
+
+acl.config({
+    baseUrl:'/',
+    defaultRole:'zombie',
+    decodedObjectName:'zombie',
+    roleSearchPath:'zombie.role'
+});
+
+router.use(acl.authorize);
+
 
 router.use((req,res,next) => {
     res.locals.currentZombie = req.zombie;
     res.locals.currnetarma = req.arma;
     res.locals.errors = req.flash('error');
     res.locals.infos = req.flash('info');
+    if (req.zombie){
+        req.session.role = req.zombie.role;
+
+    }else{
+        req.session.role = 'zombie';
+    }
+    console.log(req.session);
     next();
 });
 
@@ -46,6 +63,7 @@ router.get('/signup',(req,res) => {
 router.post('/signup',(req,res,next) =>{
     var username = req.body.username;
     var password = req.body.password;
+    var role = req.body.role;
 
     Zombie.findOne({username:username},(err,zombie)=>{
         if(err){
@@ -57,7 +75,8 @@ router.post('/signup',(req,res,next) =>{
         }
         var newZombie = new Zombie({
             username:username,
-            password:password
+            password:password,
+            role:role
         });
         newZombie.save(next);
         return res.redirect("/")
@@ -96,7 +115,7 @@ router.post('/weapons',(req,res,next) =>{
             descripcion:descripcion,
             fuerza:fuerza,
             categoria:categoria,
-            municiones:municiones
+            municiones:municiones,
         });
         newarma.save(next);
         return res.redirect("/index_weapons")
@@ -114,6 +133,7 @@ router.post("/login",passport.authenticate("login",{
 router.get("/logOut",(req,res) => {
     req.logOut();
     res.redirect("/");
+    
 });
 
 router.get("/edit",ensureAuthenticated,(req,res)=> {
@@ -142,5 +162,6 @@ function ensureAuthenticated(req,res,next){
         res.redirect("/login");
     }
 }
+
 
 module.exports = router;

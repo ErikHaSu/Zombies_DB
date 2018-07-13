@@ -21,7 +21,13 @@
                     <a href="/edit"> Hola, <%= currentZombie.displayName %> </a>
                </li>
                <li>
+               <a href="#"><%= currentZombie.role%></a>
+                </li>
+               <li>
                     <a href="/logout">Salir</a>
+               </li>
+               <li>
+                    <a href="/weapons"> Añadir Armas</a>
                </li>
                     <% } else { %>
                <li>
@@ -30,9 +36,7 @@
                <li>
                     <a href="/signup"> Registrarse</a>
                </li>
-               <li>
-                    <a href="/weapons"> Añadir Armas</a>
-               </li>
+               
 
                <% } %>
             </ul>

@@ -1,0 +1,76 @@
+[{
+    "group":"zombieKing",
+    "permissions":[
+        {
+        "resource":"*",
+        "methods":"*",
+        "action":"allow"
+        }
+]
+},
+{
+    "group":"zombieQueen",
+    "permissions":[
+        {
+            "resource":"/edit",
+            "methods":["GET","POST"],
+            "action":"allow" 
+        },
+        {
+            "resource":"*",
+            "methods":["GET"],
+            "action":"allow" 
+        }
+        
+    ]
+},
+{
+    "group":"zombieBoss",
+    "permissions":[
+        {
+            "resource":"/weapons",
+            "methods":["GET","POST"],
+            "action":"allow" 
+        },
+        {
+            "resource":"/index_weapons",
+            "methods":["GET"],
+            "action":"allow" 
+        },{
+            "resource":"/logout",
+            "methods":["GET"],
+            "action":"allow" 
+        },{
+            "resource":"/edit",
+            "methods":["GET","POST"],
+            "action":"allow"
+        }
+      
+
+    ]
+},
+{
+    "group":"zombie",
+    "permissions":[
+        {
+            "resource":"/login",
+            "methods":["GET","POST"],
+            "action":"allow"
+        },
+        {
+            "resource":"/signup",
+            "methods":["GET","POST"],
+            "action":"allow" 
+        },{
+            "resource":"/logout",
+            "methods":["GET"],
+            "action":"allow" 
+        },{
+            "resource":"/edit",
+            "methods":["GET","POST"],
+            "action":"allow"
+        }
+    ]
+}
+]
+

@@ -8,6 +8,7 @@ var zombiSchema = mongoose.Schema({
     password:{type:String,required:true},
     createdat:{type:Date,default:Date.now},
     displayName:{type:String},
+    role:{type:String},
     bio:String
 });
 var donothing = () =>{
